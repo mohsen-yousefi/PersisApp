@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PersisApp</string>
+    <string name="NO_INTERNET">مشکل در اتصال  ، لطفا ارتباط خود را بررسی کنید ...</string>
 </resources>
