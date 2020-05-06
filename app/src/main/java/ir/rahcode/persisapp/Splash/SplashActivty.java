@@ -3,12 +3,20 @@ package ir.rahcode.persisapp.Splash;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nabinbhandari.android.permissions.PermissionHandler;
+import com.nabinbhandari.android.permissions.Permissions;
+
+import java.util.ArrayList;
 
 import ir.rahcode.persisapp.R;
 import ir.rahcode.persisapp.utils.ConnectivityUtils;
@@ -23,6 +31,23 @@ public class SplashActivty extends AppCompatActivity {
         setContentView(R.layout.activity_splash_activty);
 
         ChekInternetConection();
+
+    }
+
+
+    void GetLocationPermisison(){
+        Permissions.check(this/*context*/, Manifest.permission.ACCESS_COARSE_LOCATION, null, new PermissionHandler() {
+            @Override
+            public void onGranted() {
+                Toast.makeText(SplashActivty.this, "پرمِزن", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDenied(Context context, ArrayList<String> deniedPermissions) {
+                super.onDenied(context, deniedPermissions);
+                GetLocationPermisison();
+            }
+        });
 
     }
 

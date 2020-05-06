@@ -35,4 +35,7 @@ dependencies {
     //UI LIBRARY
     implementation "androidx.cardview:cardview:1.0.0"
 
+    //permission library
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
 }
