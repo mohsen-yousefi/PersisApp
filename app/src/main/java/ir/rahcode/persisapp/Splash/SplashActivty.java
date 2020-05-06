@@ -57,7 +57,7 @@ public class SplashActivty extends AppCompatActivity {
             showPopupHold(getString(R.string.NO_INTERNET));
         }
     }
-
+//
     private void OpenInternetPage(String type) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         if (type == "GPRS")
@@ -67,7 +67,7 @@ public class SplashActivty extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+//
     private void showPopupHold(String message) {
         final AlertDialog popup = new AlertDialog.Builder(this).create();
         popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
