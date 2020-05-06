@@ -23,7 +23,7 @@ public class SplashActivty extends AppCompatActivity {
         setContentView(R.layout.activity_splash_activty);
 
         ChekInternetConection();
-            
+
     }
 
     private void ChekInternetConection() {
@@ -36,9 +36,9 @@ public class SplashActivty extends AppCompatActivity {
     private void OpenInternetPage(String type) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         if (type == "GPRS")
-            intent.setClassName("com.android.phone", "com.android.phone.NetworkSetting");
+            intent.setClassName(this, "com.android.phone.NetworkSetting");
         else
-            intent.setClassName("com.android.settings", "com.android.settings.wifi.WifiSettings");
+            intent.setClassName(this, "com.android.settings.wifi.WifiSettings");
         startActivity(intent);
     }
 
