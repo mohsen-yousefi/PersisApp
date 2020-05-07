@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,9 +62,9 @@ public class SplashActivty extends AppCompatActivity {
     private void OpenInternetPage(String type) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         if (type == "GPRS")
-            intent.setClassName(this, "com.android.phone.NetworkSetting");
+            intent.setClassName(this, Settings.ACTION_WIRELESS_SETTINGS);
         else
-            intent.setClassName(this, "com.android.settings.wifi.WifiSettings");
+            intent.setClassName(this, Settings.ACTION_WIFI_SETTINGS);
         startActivity(intent);
     }
 

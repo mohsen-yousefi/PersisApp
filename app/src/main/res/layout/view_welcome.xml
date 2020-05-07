@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@drawable/shape_rounded_top_rectangle_white" android:layout_width="fill_parent" android:layout_height="@dimen/splash_bottom_space_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical" android:id="@+id/view_welcome_main_layout" android:background="@color/pure_white" android:layout_width="fill_parent" android:layout_height="@dimen/splash_bottom_space_height" android:layout_margin="@dimen/padding_medium_2x" android:layout_alignParentBottom="true" android:alpha="0.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/view_welcome_main_buttons_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/view_welcome_language_buttons_layout">
+            <com.google.android.material.textview.MaterialTextView android:textStyle="bold" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_very_small" android:text="@string/signup_revamp_welcome_title" style="@style/TextView.Default.ExtraExtraLarge" />
+            <com.google.android.material.textview.MaterialTextView android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_small" android:text="@string/signup_revamp_welcome_subtitle" style="@style/TextView.Default.Large.Light" />
+            <TextView android:textStyle="bold" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium_2x" android:text="@string/signup_revamp_welcome_phone_number_title" style="@style/TextView.Default.Large" />
+            <com.google.android.material.textview.MaterialTextView android:textColor="@color/dusty_grey" android:layout_gravity="center" android:id="@id/view_welcome_to_log_in_input" android:paddingTop="@dimen/padding_medium" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/signup_revamp_welcome_phone_number_hint" style="@style/TextView.Default.Large.Light" />
+            <View android:background="@color/darker_gray" android:layout_width="fill_parent" android:layout_height="1.5dip" android:layout_marginTop="@dimen/margin_small" />
+        </LinearLayout>
+        <LinearLayout android:gravity="end" android:layout_gravity="center" android:orientation="horizontal" android:id="@+id/view_welcome_language_buttons_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium" android:layout_alignParentBottom="true">
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

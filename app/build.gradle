@@ -37,5 +37,7 @@ dependencies {
 
     //permission library
     implementation 'com.nabinbhandari.android:permissions:3.8'
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
 
 }

@@ -3,4 +3,5 @@
     <string name="NO_INTERNET">مشکل در اتصال  ، لطفا ارتباط خود را بررسی کنید ...</string>
     <string name="parsis_terms_and_condition">قوانین و شرایط پارسیس</string>
     <string name="version">نسخه:</string>
+    <string name="signup_revamp_welcome_phone_number_title">شماره تلفن همراه</string>
 </resources>

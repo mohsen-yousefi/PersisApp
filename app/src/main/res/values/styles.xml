@@ -19,6 +19,39 @@
         <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
         <item name="fontFamily">@font/iran_sans_mobile_medium</item>
     </style>
+
+
+
+
+
+    <style name="SnappButton.Secondary.Small.NoShaddow" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height_default</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
+
+        <item name="fontFamily">@font/iran_sans_mobile_medium</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style name="TextView.Default.Large" parent="@style/TextView.Default">
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+
+
     <style name="TextView.Light" parent="@style/TextView">
         <item name="android:fontFamily">@font/iran_sans_mobile_light</item>
         <item name="fontFamily">@font/iran_sans_mobile_light</item>
