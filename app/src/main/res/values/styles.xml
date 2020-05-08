@@ -45,13 +45,20 @@
 
 
 
-
+    <style name="TextView.Bold.Medium" parent="@style/TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
 
     <style name="TextView.Default.Large" parent="@style/TextView.Default">
         <item name="android:textSize">@dimen/font_size_large</item>
     </style>
-
-
+    <style name="TextView.Bold.Small" parent="@style/TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+    <style name="TextView.Bold" parent="@style/TextView">
+        <item name="android:fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+    </style>
     <style name="TextView.Light" parent="@style/TextView">
         <item name="android:fontFamily">@font/iran_sans_mobile_light</item>
         <item name="fontFamily">@font/iran_sans_mobile_light</item>

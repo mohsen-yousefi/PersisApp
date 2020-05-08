@@ -9,8 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name="ir.rahcode.Persis"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash.SplashActivty">
+        <activity android:name=".layouts.SplashScreens.SplashActivty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +21,10 @@
         <activity android:name=".ApplicationActivity">
 
         </activity>
+
+        <activity android:name=".layouts.SeperatedScreen.MenuMainContainer"/>
+
+
 
     </application>
 
