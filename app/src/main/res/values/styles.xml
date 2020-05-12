@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,11 +19,36 @@
         <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
         <item name="fontFamily">@font/iran_sans_mobile_medium</item>
     </style>
-
-
-
-
-
+    <style name="EditText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile_light</item>
+        <item name="fontFamily">@font/iran_sans_mobile_light</item>
+    </style>
+    <style name="Button.Signup" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="cornerRadius">@dimen/radius_button_corner</item>
+    </style>
+    <style name="TextView.Default.ExtraExtraLarge" parent="@style/TextView.Default">
+        <item name="android:textSize">@dimen/font_size_extra_extra_large</item>
+    </style>
+    <style name="TextView.Default.Large.Light" parent="@style/TextView.Default.Large">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile_light</item>
+        <item name="fontFamily">@font/iran_sans_mobile_light</item>
+    </style>
+    <style name="TextView.Default.Medium.Light" parent="@style/TextView.Default.Medium">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile_light</item>
+        <item name="fontFamily">@font/iran_sans_mobile_light</item>
+    </style>
+    <style name="EditText.Bold" parent="@style/EditText">
+        <item name="android:fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+    </style>
+    <style name="TextView.Bold.ExtraExtraLarge" parent="@style/TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_extra_extra_large</item>
+    </style>
     <style name="SnappButton.Secondary.Small.NoShaddow" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>

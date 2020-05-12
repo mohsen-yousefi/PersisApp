@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:name="ir.rahcode.Persis"
         android:theme="@style/AppTheme">
-        <activity android:name=".layouts.SplashScreens.SplashActivty">
+        <activity android:name=".layouts.SplashScreens.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<activity android:name=".layouts.LoginScreens.SignupMainContainer"/>
+
+
         <activity android:name=".ApplicationActivity">
 
         </activity>
