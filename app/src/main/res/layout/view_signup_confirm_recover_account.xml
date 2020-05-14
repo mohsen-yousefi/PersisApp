@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@+id/view_signup_revamp_confirm_recover_account_back" android:padding="@dimen/padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_header_back" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_medium_2x" android:layout_marginTop="@dimen/margin_medium_2x" android:layout_marginRight="@dimen/margin_medium_2x" android:layout_below="@+id/back_signup">
+            <androidx.appcompat.widget.AppCompatTextView android:textStyle="bold" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_small" android:text="@string/signup_revamp_recover_confirm_title"  />
+            <androidx.appcompat.widget.AppCompatTextView android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_small" android:text="@string/signup_revamp_recover_confirm_subtitle"  />
+            <EditText android:id="@+id/view_signup_revamp_confirm_recover_account_input_otp_edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_medium" android:cursorVisible="false" android:maxLength="6" android:digits="1234567890۱۲۳۴۵۶۷۸۹۰" android:inputType="number" android:layoutDirection="ltr"  style="@style/EditText.Bold" />
+            <View android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <com.google.android.material.button.MaterialButton android:textColor="@color/white" android:layout_gravity="end" android:id="@+id/view_signup_two_step_auth_confirm_btn" android:layout_width="@dimen/button_width_medium" android:layout_height="@dimen/button_height_default" android:layout_marginBottom="@dimen/margin_medium_2x" android:text="@string/signup_revamp_recover_confirm_next" android:textAllCaps="false" android:fontFamily="@font/iran_sans_mobile_medium"   />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
