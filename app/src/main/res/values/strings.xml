@@ -122,7 +122,7 @@
     <string name="default_wallet_confirmation">تایید</string>
     <string name="default_wallet_dialog_description">هزینه سفر به صورت پیش‌فرض از کیف پول انتخابی برداشت خواهد شد. در زمان سفر هم می‌توانید شیوه پرداخت را تغییر دهید.</string>
     <string name="default_wallet_persis">پارسیس</string>
-    <string name="default_web_client_id">35960493321-n030sqljs8lteldbt90mtim7eckju2mp.apps.googleusercontent.com</string>
+
     <string name="deliver_to">تحویل گیرنده</string>
     <string name="desired_location">محل مورد نظر...</string>
     <string name="destination_label">مقصد:</string>
@@ -233,7 +233,7 @@
     <string name="google_play_dialog_message">"برای استفاده از پارسیس به آخرین نسخه گوگل پلی سرویس نیاز است. آیا مایلید همین حالا به‌روزرسانی کنید؟
 توجه داشته باشید که ممکن است در گوگل پلی سرویس، محدودیتی برای کاربران ساکن ایران وجود داشته باشد."</string>
     <string name="google_play_dialog_title">نیاز به آخرین نسخه Google Play services</string>
-    <string name="google_storage_bucket">persis-1017.appspot.com</string>
+
     <string name="got_it">متوجه شدم</string>
     <string name="gps_system">سیستم موقعیت‌یاب</string>
     <string name="header_persis_to">پارسیس به:</string>
@@ -420,18 +420,25 @@
     <string name="profile_address_hint">آدرس:</string>
     <string name="profile_birth_date_hint">تاریخ تولد</string>
     <string name="profile_confirm_your_email">ایمیل خود را تایید کنید…</string>
+    <string name="ban_error">حساب کاربری شما مسدود شده لطفا با پشتیبانی تماس بگیرید</string>
+    <string name="verification_code_net_problem">در فرایند تایید کد مشکلی به وجود امده لطفا مجددا امتحان کنید</string>
+    <string name="name_and_family_helper">شماره تلفن شما در سیستم موجود می باشد اما نام و نام خانوادگی شما ذخیره نشده</string>
+    <string name="name_and_family_error">مشکلی در ثبت نام به وجود امده لطفا مجددا امتحان کنید</string>
     <string name="profile_email_hint">آدرس ایمیل</string>
     <string name="profile_email_is_approved">ایمیل تایید شده</string>
-    <string name="profile_enter_full_name">نام و نام خانوادگی خود را وارد کنید</string>
+    <string name="profile_enter_full_name">نام  خود را وارد کنید</string>
+    <string name="profile_enter_full_family">نام خانوادگی خود را وارد کنید</string>
+
     <string name="profile_enter_mobile_number">ورود شماره همراه</string>
     <string name="profile_enter_your_email_address">ایمیل خود را وارد کنید</string>
     <string name="profile_fullname_hint">نام و نام خانوادگی</string>
+    <string name="profile_fullfamily_hint">نام خانوادگی</string>
     <string name="profile_gender_hint">جنسیت</string>
     <string name="profile_mobile_number_hint">ورود شماره همراه</string>
     <string name="profile_send_verification_email_again">ارسال مجدد ایمیل تایید</string>
     <string name="profile_toolbar_title">اطلاعات کاربری</string>
     <string name="profile_updated">اطلاعات شما با موفقیت به روز رسانی شد</string>
-    <string name="project_id">persis-1017</string>
+
     <string name="promo_code">کد تخفیف</string>
     <string name="promo_code_title">کد تخفیف</string>
     <string name="quick_pay">خرید آنی</string>
@@ -564,7 +571,8 @@
     <string name="signup_revamp_profile_dialog_yes">بله</string>
     <string name="signup_revamp_profile_email">ایمیل</string>
     <string name="signup_revamp_profile_email_hint">ایمیل خود را وارد کنید.</string>
-    <string name="signup_revamp_profile_full_name">نام و نام‌خانوادگی</string>
+    <string name="signup_revamp_profile_full_name">نام</string>
+    <string name="signup_revamp_profile_full_family">نام‌خانوادگی</string>
     <string name="signup_revamp_profile_full_name_hint">نام و نام‌خانوادگی خود را وارد کنید.</string>
     <string name="signup_revamp_profile_next">مرحله بعد</string>
     <string name="signup_revamp_profile_optional">اختیاری</string>

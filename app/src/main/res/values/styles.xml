@@ -1,11 +1,42 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+
+
+
+    <style name="AppTheme" parent="@style/UiTheme">
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+       
+    </style>
+
+    <style name="UiTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="VerificationDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="SnappButton.Accent" parent="@style/SnappButton">
+
+    </style>
+    <style name="SnappButton">
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height_default</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
+
+        <item name="fontFamily">@font/iran_sans_mobile_medium</item>
+    </style>
+    <style name="TextView.Bold.Large" parent="@style/TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+    <style name="TextView.Default.Small" parent="@style/TextView.Default">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+    <style name="SnappButton.Accent.Large" parent="@style/SnappButton.Accent">
+        <item name="android:layout_width">fill_parent</item>
     </style>
     <style name="TextView">
         <item name="android:textColor">@color/black</item>
@@ -16,6 +47,30 @@
         <item name="android:textSize">@dimen/font_size_medium</item>
     </style>
     <style name="TextView.Default" parent="@style/TextView">
+        <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
+        <item name="fontFamily">@font/iran_sans_mobile_medium</item>
+    </style>
+    <style name="Button.Bold.AccentBackground.WithoutShadow" parent="@style/Button.Bold.AccentBackground">
+        <item name="android:textColor">@color/pure_white</item>
+        <item name="android:background">@drawable/button_accent_background_without_shadow_selector</item>
+    </style>
+    <style name="Button.Bold.AccentBackground" parent="@style/Button.Bold">
+        <item name="android:textColor">@color/pure_white</item>
+        <item name="android:background">@drawable/button_accent_background_selector</item>
+    </style>
+    <style name="Button.Bold" parent="@style/Button">
+        <item name="android:fontFamily">@font/iran_sans_mobile_bold</item>
+        <item name="fontFamily">@font/iran_sans_mobile_bold</item>
+    </style>
+    <style name="TextView.Bold.ExtraLarge" parent="@style/TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_extra_large</item>
+    </style>
+    <style name="Button">
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height_default</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">@font/iran_sans_mobile_medium</item>
         <item name="fontFamily">@font/iran_sans_mobile_medium</item>
     </style>

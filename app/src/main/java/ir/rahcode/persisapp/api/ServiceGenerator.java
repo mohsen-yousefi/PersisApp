@@ -5,10 +5,10 @@ import android.util.Base64;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import com.rahcode.helloiran.utils.BooleanSerializerDeserializer;
 
 import java.io.IOException;
 
+import ir.rahcode.persisapp.utils.BooleanSerializerDeserializer;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -17,7 +17,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.rahcode.helloiran.utils.Log.LOG;
+import static ir.rahcode.persisapp.utils.Log.LOG;
+
 
 /**
  * Created by Androgo on 10/13/2018.
@@ -25,8 +26,8 @@ import static com.rahcode.helloiran.utils.Log.LOG;
 
 public class ServiceGenerator {
 
-    public static String URL_WEB = "https://persisapp.com/v1";
-    public static String API_BASE_URL = URL_WEB + "taxi/api.php/";
+    public static String URL_WEB = "https://persisapp.com/v1/";
+    public static String API_BASE_URL = URL_WEB + "api.php/";
 
     public static final String Privacy = URL_WEB + "index.php/c_utama/privacy";
     public static final String FAQ = URL_WEB + "index.php/c_utama/faq";

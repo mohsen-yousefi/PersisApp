@@ -19,7 +19,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="50dp" android:src="@drawable/ic_snapp_logo_vector" android:scaleType="fitXY" android:layout_centerInParent="true" />
+            android:layout_height="50dp"
+            android:visibility="gone" android:src="@drawable/ic_snapp_logo_vector" android:scaleType="fitXY" android:layout_centerInParent="true" />
 
 
 

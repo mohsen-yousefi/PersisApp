@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "149513799288",
+    "firebase_url": "https://persisapp-4c6a9.firebaseio.com",
+    "project_id": "persisapp-4c6a9",
+    "storage_bucket": "persisapp-4c6a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149513799288:android:e87c7978b0cdb4d256cf8d",
+        "android_client_info": {
+          "package_name": "ir.rahcode.persisapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149513799288-l4f7beofc4s40plc1p016jp0p5p0bl8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.rahcode.persisapp",
+            "certificate_hash": "aa6f001c6cc6e5adbac10aaeddb1d132b1e34796"
+          }
+        },
+        {
+          "client_id": "149513799288-94pqijlb8ij6muenfgdo96h0qnbdjq7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrJOW-baMCmKjCNGwh-CqGh-wKZShlQmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149513799288-94pqijlb8ij6muenfgdo96h0qnbdjq7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

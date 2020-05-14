@@ -8,20 +8,25 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +39,10 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
 import com.mapbox.android.core.location.LocationEngineProvider;
@@ -42,22 +50,35 @@ import com.mapbox.android.core.location.LocationEngineRequest;
 import com.mapbox.android.core.location.LocationEngineResult;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
+import com.shreyaspatil.MaterialDialog.AbstractDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 
 import java.util.ArrayList;
 
 import ir.rahcode.persisapp.R;
+import ir.rahcode.persisapp.api.ServiceGenerator;
+import ir.rahcode.persisapp.api.services.UserService;
+import ir.rahcode.persisapp.layouts.LoginScreens.SignupMainContainer;
+import ir.rahcode.persisapp.models.UserData;
+import ir.rahcode.persisapp.models.json.LoginRequestJson;
+import ir.rahcode.persisapp.models.json.LoginResponseJson;
 import ir.rahcode.persisapp.utils.ConnectivityUtils;
+import ir.rahcode.persisapp.utils.PrefranceHelper;
+import ir.rahcode.persisapp.utils.StaticCenteral;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
 
     private Boolean ConnectionAvibale = false;
-
+private  Handler mainHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_splash);
         LocationManager manager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-
+mainHandler = new Handler(Looper.getMainLooper());
         if(ChekInternetConection() == false){
 
 
@@ -67,7 +88,7 @@ public class SplashActivity extends AppCompatActivity {
         }else{
 
 
-
+            RequestFCMToken();
             checkLocationPermission();
 
 
@@ -81,7 +102,18 @@ public class SplashActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 99) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-               // chekAppVersion();
+
+                if(PrefranceHelper.getPhoneNumber().isEmpty())
+                {
+                    startActivity(new Intent(SplashActivity.this, SignupMainContainer.class));
+                    SplashActivity.this.finish();
+
+                }else{
+
+                    ChekUserStatus();
+                }
+
+
             } else {
                 showPopupHold("برای اجرای این نرم افزار نیازمند لوکیشن هستید  !","GPS");
             }
@@ -196,14 +228,13 @@ public class SplashActivity extends AppCompatActivity {
 
 
                 ActivityCompat.requestPermissions(SplashActivity.this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.READ_CONTACTS},
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_CONTACTS},
                         MY_PERMISSIONS_REQUEST_LOCATION);
                 ///////////////
 
             } else {
 
                 getCurentLocation();
-
 
 
             }
@@ -214,7 +245,7 @@ public class SplashActivity extends AppCompatActivity {
     LocationEngine locationEngine;
 
     private void getCurentLocation() {
-        android.util.Log.i("zzzzz222zzzzz", "onSuccess: ");
+
         locationEngine = LocationEngineProvider.getBestLocationEngine(this);
 
         LocationEngineRequest request = new LocationEngineRequest.Builder(1000).setPriority(LocationEngineRequest.PRIORITY_BALANCED_POWER_ACCURACY).build();
@@ -235,9 +266,19 @@ public class SplashActivity extends AppCompatActivity {
     public LocationEngineCallback<LocationEngineResult> locationEngineCallback = new LocationEngineCallback<LocationEngineResult>() {
         @Override
         public void onSuccess(LocationEngineResult result) {
+            Location lastKnowLocation = result.getLastLocation();
+            PrefranceHelper.SetLatLng(lastKnowLocation.getLatitude() + "," + lastKnowLocation.getLongitude());
 
-            //  FoodActivity.location = result.getLastLocation();
-            //   Log.i("www", "koooos 1: "+FoodActivity.location.getLatitude());
+            if(PrefranceHelper.getPhoneNumber().isEmpty())
+            {
+
+                startActivity(new Intent(SplashActivity.this, SignupMainContainer.class));
+                SplashActivity.this.finish();
+
+            }else{
+
+                ChekUserStatus();
+            }
             locationEngine.removeLocationUpdates(locationEngineCallback);
         }
 
@@ -304,22 +345,118 @@ public class SplashActivity extends AppCompatActivity {
     private void showPopupHold(String message,String type) {
 
 
+MaterialDialog mDialog = new MaterialDialog.Builder(this).setTitle(type).setMessage(message).setCancelable(false).setPositiveButton("تنظیمات", new AbstractDialog.OnClickListener() {
+    @Override
+    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+        OpenInternetPage(type);
+    }
+}).setNegativeButton("خروج", new AbstractDialog.OnClickListener() {
+    @Override
+    public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+        SplashActivity.this.finish();
+    }
+}).build();
+mDialog.show();
 
-        new AlertDialog.Builder(this).setMessage(message).setPositiveButton("تنظیمات", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                OpenInternetPage(type);
-            }
-        }).setNegativeButton("خروج", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                SplashActivity.this.finish();
-            }
-        }).show();
+
+
+
 
 
 
     }
+
+
+    private void RequestFCMToken(){
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this, new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+           String newToken = instanceIdResult.getToken();
+
+                PrefranceHelper.SetFCMToken(newToken);
+
+            }
+        });
+    }
+    public void ChekUserStatus() {
+        LoginRequestJson request = new LoginRequestJson();
+
+        request.setphone(PrefranceHelper.getPhoneNumber());
+        request.setRegId(null);
+        final UserService service = ServiceGenerator.createService(UserService.class);
+        service.login(request).enqueue(new Callback<LoginResponseJson>() {
+            @Override
+            public void onResponse(Call<LoginResponseJson> call, Response<LoginResponseJson> response) {
+            mainHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (response.isSuccessful()) {
+                        if (response.body().getMessage().equalsIgnoreCase("found")) {
+
+
+
+
+                        } else {
+if(PrefranceHelper.getPhoneNumber().isEmpty()){
+    startActivity(new Intent(SplashActivity.this, SignupMainContainer.class));
+    SplashActivity.this.finish();
+}else{
+
+
+
+
+
+    MaterialDialog mDialog =
+            new MaterialDialog.Builder(SplashActivity.this).setTitle("دستیار").setMessage(getString(R.string.name_and_family_helper)).setCancelable(false).setPositiveButton("ثبت مشخصات", new AbstractDialog.OnClickListener() {
+                @Override
+                public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+
+                    Intent i = new Intent(new Intent(SplashActivity.this, SignupMainContainer.class));
+                    i.putExtra("has_number",true);
+                    startActivity(i);
+                    SplashActivity.this.finish();
+                }
+            }).setNegativeButton("از ابتدا", new AbstractDialog.OnClickListener() {
+                @Override
+                public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                    startActivity(new Intent(SplashActivity.this, SignupMainContainer.class));
+                    SplashActivity.this.finish();
+                }
+            }).build();
+    mDialog.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+                        }
+                        }
+                }
+            });
+
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponseJson> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(SplashActivity.this, "مشکلی  پیش آمده با پشتیبانی در ارتباط باشید !", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
 
     @Override
     protected void onResume() {

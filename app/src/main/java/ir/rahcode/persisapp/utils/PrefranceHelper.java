@@ -13,10 +13,30 @@ public class PrefranceHelper {
 
 
     }
+public  static  void SetLatLng(String latlng){
+        editor.putString("latlng",latlng);
+        editor.commit();
+}
 
+public static String getLatLng(){
+        return  pref.getString("latlng","");
+}
+public  static  void SetPhoneNumber(String phone){
+        editor.putString("phone",phone);
+        editor.commit();
+}
+public  static  String getPhoneNumber(){
+        return  pref.getString("phone","");
 
+}
+public  static  void SetFCMToken(String fcm){
+        editor.putString("fcm",fcm);
+        editor.commit();
+}
+public  static  String GetFCMToken(){
+        return pref.getString("fcm","");
 
-
+}
 
     public static  void SetUsername(String username){
         editor.putString("username",username);

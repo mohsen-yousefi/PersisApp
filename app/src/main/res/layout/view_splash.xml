@@ -3,6 +3,7 @@
     android:background="@color/colorAccent" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.appcompat.widget.AppCompatImageView android:id="@+id/splash_center_image_view" android:layout_width="140dp"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,18 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize">
 
-    <TextView
-        android:layout_centerInParent="true"
-        android:textColor="@color/green_blue"
-        android:fontFamily="@font/iran_sans_mobile_bold"
-        android:layout_width="wrap_content"
-        android:text="تلاش مجدد"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"
->
 
-    </TextView>
 </RelativeLayout>
 
 

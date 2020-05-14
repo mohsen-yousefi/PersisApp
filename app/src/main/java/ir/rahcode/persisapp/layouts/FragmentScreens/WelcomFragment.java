@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.textview.MaterialTextView;
 
 import ir.rahcode.persisapp.R;
+import ir.rahcode.persisapp.layouts.LoginScreens.SignupMainContainer;
 
 public class WelcomFragment extends Fragment {
 
@@ -37,6 +38,7 @@ view_welcome_main_layout.animate().alpha(1.0f).setDuration(1500).start();
         view_welcome_to_log_in_input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+SignupMainContainer.inc.InputNumberPage();
 
             }
         });
